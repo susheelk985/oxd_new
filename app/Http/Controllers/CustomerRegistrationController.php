@@ -56,11 +56,6 @@ class CustomerRegistrationController extends Controller
           'profile_img' =>'image|nullable|max:1999',
         ]);
         if($request->input('member_ID')==''){
-        $mobile_number = DB::table('oxd_users')->where('mobile',$request->input('mobile'))->get();
-
-        if ($mobile_number->isEmpty()) {
-          $email = DB::table('oxd_users')->where('email',$request->input('email'))->get();
-          if ($email->isEmpty()) {
 
             // Handle file upload
             if($request->hasFile('profile_img')){
@@ -70,7 +65,7 @@ class CustomerRegistrationController extends Controller
               $filename =pathinfo($filenameWithExt, PATHINFO_FILENAME);
               // Get just ext
               $extension = $request->file('profile_img')->getClientOriginalExtension();
-              //Filename to store
+              //Filename to store5564564561
               $fileNameToStore=$filename .'_'.time().'.'.$extension;
               // Upload image
               $path = $request->file('profile_img')->storeAs('public/profile', $fileNameToStore);
@@ -128,50 +123,43 @@ class CustomerRegistrationController extends Controller
                 $mem->save();
                 return redirect('/')->with('success', 'Successfully Registered.  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
               }else{
-                return redirect('/customer_registration')->with('error', 'The Email is already exists!');
+                $user_details = DB::table('oxd_users')->join('oxd_orders','oxd_orders.member_id', '=','oxd_users.id')->where('oxd_users.id',$request->input('member_ID'))->where('oxd_orders.plan_id', $request->input('plan'))->get();
+                if($user_details->isEmpty()){
+                  $user = oxd_users::find($request->input('member_ID'));
+                  $user->address = $request->input('address');
+                  $user->city = $request->input('city');
+                  $user->state = $request->input('state');
+                  $user->pincode = $request->input('pincode');
+                  $user->save();
+                  $member_id=$user->id;
+                  //data to oxd_orders
+                  $ord = new oxd_orders;
+                  $ord->order_id = '0'.$member_id.time();
+                  $ord->member_id = $member_id;
+                  $ord->member_name = $request->input('Cus_Name');
+                  $ord->product_cost = $request->input('product_cost');
+                  $ord->product_id = $request->input('products_id');
+                  $ord->category_id = $request->input('category_id');
+                  $ord->plan_id = $request->input('plan');
+                  $ord->emi = $request->input('emi_months');
+                  $ord->emi_amount = $request->input('emi_amount');
+                  $ord->down_payment = $request->input('downpayment');
+                  $ord->inverstment = $request->input('inverstment');
+                  $ord->payment_method = $request->input('payment_method');
+                  $ord->save();
+
+                  //data to oxd_member_log
+                  $mem= new oxd_member_log;
+                  $mem->member_id = $member_id;
+                  $mem->name = $request->input('Cus_Name');
+                  $mem->referral_id =$request->input('member_ID');
+                  $mem->save();
+                  return redirect('/')->with('success', 'Successfully Registered.  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
+                }else{
+                  return redirect('/customer_registration')->with('error', 'You are already a member in this plan!');
+                }
               }
-
-            }else{
-              return redirect('/customer_registration')->with('error', 'The Mobile Number is already exists!');
             }
-        }else{
-          $user_details = DB::table('oxd_users')->join('oxd_orders','oxd_orders.member_id', '=','oxd_users.id')->where('oxd_users.id',$request->input('member_ID'))->where('oxd_orders.plan_id', $request->input('plan'))->get();
-          if($user_details->isEmpty()){
-            $user = oxd_users::find($request->input('member_ID'));
-            $user->address = $request->input('address');
-            $user->city = $request->input('city');
-            $user->state = $request->input('state');
-            $user->pincode = $request->input('pincode');
-            $user->save();
-            $member_id=$user->id;
-            //data to oxd_orders
-            $ord = new oxd_orders;
-            $ord->order_id = '0'.$member_id.time();
-            $ord->member_id = $member_id;
-            $ord->member_name = $request->input('Cus_Name');
-            $ord->product_cost = $request->input('product_cost');
-            $ord->product_id = $request->input('products_id');
-            $ord->category_id = $request->input('category_id');
-            $ord->plan_id = $request->input('plan');
-            $ord->emi = $request->input('emi_months');
-            $ord->emi_amount = $request->input('emi_amount');
-            $ord->down_payment = $request->input('downpayment');
-            $ord->inverstment = $request->input('inverstment');
-            $ord->payment_method = $request->input('payment_method');
-            $ord->save();
-
-            //data to oxd_member_log
-            $mem= new oxd_member_log;
-            $mem->member_id = $member_id;
-            $mem->name = $request->input('Cus_Name');
-            $mem->referral_id =$request->input('member_ID');
-            $mem->save();
-            return redirect('/')->with('success', 'Successfully Registered.  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
-          }else{
-            return redirect('/customer_registration')->with('error', 'You are already a member in this plan!');
-          }
-      }
-      }
 
   public function get_member_details(){
     $userid=$_GET['mid'];
