@@ -7,6 +7,7 @@ use App\Http\Controllers\WalletController;
 use App\Http\Controllers\EpinController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,11 @@ use App\Http\Controllers\PlanController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('auth/login');
-});
-Route::resource('inc/sidebar','SidebarController');
+});*/
 Auth::routes();
+Route::resource('inc/sidebar','SidebarController');
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 Route::get('/dashboard/plans/{id}', [DashboardController::class, 'plans']);
 //Route::get('/customer_registration', 'CustomerRegistrationController@index');
@@ -45,3 +46,5 @@ Route::get('/monthly_payment',[AdminController::class,'mothly_payment_export']);
 Route::post('/monthly_payment/export',array('uses'=>'AdminController@get_monthly_payment'));
 Route::get('/payment_details',[AdminController::class,'current_paymentDetails']);
 Route::post('/payment_details/payment_upd',array('uses'=>'AdminController@update_payment'));
+Route::get('/',[LoginController::class,'loginPage']);
+Route::post('/login',array('uses'=>'LoginController@login'));

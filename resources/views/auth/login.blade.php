@@ -46,7 +46,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{url('/login')}}">
                         @csrf
 
                         <div class="form-group row">
@@ -64,6 +64,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('User ID') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id" type="number" class="form-control @error('id') is-invalid @enderror" name="id" required autocomplete="user_id">
+
+                                @error('id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ id }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -77,7 +91,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
