@@ -42,7 +42,6 @@ class MemberController extends Controller
       					$arr[] = [
       						 'name' => $row->name,
       						 'id' => $row->member_id,
-      						 'ref' => $row->referral_id,
       						 'imgUrl' => $this->MemberPictureUrl($id),
        						'children' => $this->Children($row->member_id),
                 ];
@@ -51,8 +50,7 @@ class MemberController extends Controller
           $json[] = [
                 'name' => $this->memberName($id),
                 'id' => $this->memberID($id),
-                'ref' => $this->referralID($row->member_id),
-               'imgUrl' => $this->MemberPictureUrl($id),
+                'imgUrl' => $this->MemberPictureUrl($id),
               'children' => $arr,
         ];
 
@@ -62,7 +60,6 @@ class MemberController extends Controller
         foreach ($json as $key => $row) {
           $members[] = array('name' => $row["name"],
             'id'  => $row["id"],
-            'referral_id'  => $row["ref"],
             'imgurl'  => $row["imgUrl"],
             );
           //$d1[]=$row["name"];
@@ -70,7 +67,6 @@ class MemberController extends Controller
           foreach ($data as $key => $value) {
             $members[] = array('name' => $value["name"],
               'id'  => $value["id"],
-              'referral_id'  => $row["ref"],
               'imgurl'  => $value["imgUrl"],
               );
 
@@ -78,18 +74,31 @@ class MemberController extends Controller
            foreach ($data2 as $key => $value) {
              $members[] = array('name' => $value["name"],
                'id'  => $value["id"],
-               'referral_id'  => $row["ref"],
                'imgurl'  => $value["imgUrl"],
                );
            }
           }
 
         }
+        $membersData = array();
+        foreach ($members as $key => $value) {
+          $refID=DB::table('oxd_member_log')
+                      ->where('member_id','=',$value["id"])
+                      ->select('referral_id')
+                      ->pluck('referral_id')
+                      ->first();
 
-       //echo json_encode($members);
+           $membersData[] = array('name' => $value["name"],
+             'id'  => $value["id"],
+             'referral_id'  =>$refID ,
+             'imgurl'  => $value["imgurl"],
+           );
+
+        }
+       //echo json_encode($membersData);
         //echo $data['members']['name'];
         //echo $data['members']['id'];
-         return view('member/genealogy_view',['data' => $members]);
+         return view('member/genealogy_view',['data' => $membersData]);
 
       }
 
@@ -105,8 +114,7 @@ class MemberController extends Controller
 
      						 'name' => $row->name,
      						 'id' => $row->member_id,
-                 'ref' => $row->referral_id,
-     						 'imgUrl' => $this->MemberPictureUrl($id),
+                 'imgUrl' => $this->MemberPictureUrl($id),
       						 'children' => $this->Children($row->member_id),
       					 ];
      		}
@@ -120,10 +128,7 @@ class MemberController extends Controller
         public function memberID($id){
           return DB::table('oxd_users')->where('id',$id)->select('id')->pluck('id')->first();
         }
-
-        public function referralID($ref){
-          return DB::table('oxd_member_log')->where('member_id',$ref)->select('referral_id')->pluck('referral_id')->first();
-        }
+    
 
 
       public function MemberPictureUrl($id){

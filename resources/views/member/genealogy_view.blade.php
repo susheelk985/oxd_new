@@ -299,7 +299,7 @@ right connector from last child*/
 																												<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																													<span>Name: {{$data[4]["name"]}}</span><br>
 																													<span>ID: {{$data[4]["id"]}}</span><br>
-																													<?php if($data[4]==Auth::user()->id){
+																													<?php if($data[4]["referral_id"]==Auth::user()->id){
 																														echo "<span>DR</span>";
 																													}else{
 
@@ -317,7 +317,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[13]["name"]}}</span><br>
 																															<span>ID: {{$data[13]["id"]}}</span><br>
-																															<?php if($data[13]==Auth::user()->id){
+																															<?php if($data[13]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -335,7 +335,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[14]["name"]}}</span><br>
 																															<span>ID: {{$data[14]["id"]}}</span><br>
-																															<?php if($data[14]==Auth::user()->id){
+																															<?php if($data[14]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -353,7 +353,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[15]["name"]}}</span><br>
 																															<span>ID: {{$data[15]["id"]}}</span><br>
-																															<?php if($data[15]==Auth::user()->id){
+																															<?php if($data[15]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -373,7 +373,7 @@ right connector from last child*/
 																												<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																													<span>Name: {{$data[5]["name"]}}</span><br>
 																													<span>ID: {{$data[5]["id"]}}</span><br>
-																													<?php if($data[5]==Auth::user()->id){
+																													<?php if($data[5]["referral_id"]==Auth::user()->id){
 																														echo "<span>DR</span>";
 																													}else{
 
@@ -391,7 +391,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[16]["name"]}}</span><br>
 																															<span>ID: {{$data[16]["id"]}}</span><br>
-																															<?php if($data[16]==Auth::user()->id){
+																															<?php if($data[16]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -409,7 +409,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[17]["name"]}}</span><br>
 																															<span>ID: {{$data[17]["id"]}}</span><br>
-																															<?php if($data[17]==Auth::user()->id){
+																															<?php if($data[17]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -427,7 +427,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[18]["name"]}}</span><br>
 																															<span>ID: {{$data[18]["id"]}}</span><br>
-																															<?php if($data[18]==Auth::user()->id){
+																															<?php if($data[18]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -447,7 +447,7 @@ right connector from last child*/
 																												<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																													<span>Name: {{$data[6]["name"]}}</span><br>
 																													<span>ID: {{$data[6]["id"]}}</span><br>
-																													<?php if($data[6]==Auth::user()->id){
+																													<?php if($data[6]["referral_id"]==Auth::user()->id){
 																														echo "<span>DR</span>";
 																													}else{
 
@@ -465,7 +465,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[19]["name"]}}</span><br>
 																															<span>ID: {{$data[19]["id"]}}</span><br>
-																															<?php if($data[19]==Auth::user()->id){
+																															<?php if($data[19]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -497,7 +497,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[21]["name"]}}</span><br>
 																															<span>ID: {{$data[21]["id"]}}</span><br>
-																															<?php if($data[21]==Auth::user()->id){
+																															<?php if($data[21]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -519,7 +519,7 @@ right connector from last child*/
 																										<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																											<span>Name: {{$data[2]["name"]}}</span><br>
 																											<span>ID: {{$data[2]["id"]}}</span><br>
-																											<?php if($data[2]==Auth::user()->id){
+																											<?php if($data[2]["referral_id"]==Auth::user()->id){
 																												echo "<span>DR</span>";
 																											}else{
 
@@ -537,7 +537,7 @@ right connector from last child*/
 																												<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																													<span>Name: {{$data[7]["name"]}}</span><br>
 																													<span>ID: {{$data[7]["id"]}}</span><br>
-																													<?php if($data[7]==Auth::user()->id){
+																													<?php if($data[7]["referral_id"]==Auth::user()->id){
 																														echo "<span>DR</span>";
 																													}else{
 
@@ -555,7 +555,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[22]["name"]}}</span><br>
 																															<span>ID: {{$data[22]["id"]}}</span><br>
-																															<?php if($data[22]==Auth::user()->id){
+																															<?php if($data[22]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -573,7 +573,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[23]["name"]}}</span><br>
 																															<span>ID: {{$data[23]["id"]}}</span><br>
-																															<?php if($data[23]==Auth::user()->id){
+																															<?php if($data[23]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -591,7 +591,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[24]["name"]}}</span><br>
 																															<span>ID: {{$data[24]["id"]}}</span><br>
-																															<?php if($data[24]==Auth::user()->id){
+																															<?php if($data[24]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -611,7 +611,7 @@ right connector from last child*/
 																												<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																													<span>Name: {{$data[8]["name"]}}</span><br>
 																													<span>ID: {{$data[8]["id"]}}</span><br>
-																													<?php if($data[8]==Auth::user()->id){
+																													<?php if($data[8]["referral_id"]==Auth::user()->id){
 																														echo "<span>DR</span>";
 																													}else{
 
@@ -629,7 +629,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[25]["name"]}}</span><br>
 																															<span>ID: {{$data[25]["id"]}}</span><br>
-																															<?php if($data[25]==Auth::user()->id){
+																															<?php if($data[25]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -647,7 +647,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[26]["name"]}}</span><br>
 																															<span>ID: {{$data[26]["id"]}}</span><br>
-																															<?php if($data[26]==Auth::user()->id){
+																															<?php if($data[26]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -665,7 +665,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[27]["name"]}}</span><br>
 																															<span>ID: {{$data[27]["id"]}}</span><br>
-																															<?php if($data[27]==Auth::user()->id){
+																															<?php if($data[27]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -685,7 +685,7 @@ right connector from last child*/
 																												<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																													<span>Name: {{$data[9]["name"]}}</span><br>
 																													<span>ID: {{$data[9]["id"]}}</span><br>
-																													<?php if($data[9]==Auth::user()->id){
+																													<?php if($data[9]["referral_id"]==Auth::user()->id){
 																														echo "<span>DR</span>";
 																													}else{
 
@@ -703,7 +703,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[28]["name"]}}</span><br>
 																															<span>ID: {{$data[28]["id"]}}</span><br>
-																															<?php if($data[28]==Auth::user()->id){
+																															<?php if($data[28]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -721,7 +721,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[29]["name"]}}</span><br>
 																															<span>ID: {{$data[29]["id"]}}</span><br>
-																															<?php if($data[29]==Auth::user()->id){
+																															<?php if($data[29]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -739,7 +739,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[30]["name"]}}</span><br>
 																															<span>ID: {{$data[30]["id"]}}</span><br>
-																															<?php if($data[30]==Auth::user()->id){
+																															<?php if($data[30]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -760,7 +760,7 @@ right connector from last child*/
 																										<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																											<span>Name: {{$data[3]["name"]}}</span><br>
 																											<span>ID: {{$data[3]["id"]}}</span><br>
-																											<?php if($data[3]==Auth::user()->id){
+																											<?php if($data[3]["referral_id"]==Auth::user()->id){
 																												echo "<span>DR</span>";
 																											}else{
 
@@ -779,7 +779,7 @@ right connector from last child*/
 																													<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																														<span>Name: {{$data[10]["name"]}}</span><br>
 																														<span>ID: {{$data[10]["id"]}}</span><br>
-																														<?php if($data[10]==Auth::user()->id){
+																														<?php if($data[10]["referral_id"]==Auth::user()->id){
 																															echo "<span>DR</span>";
 																														}else{
 
@@ -797,7 +797,7 @@ right connector from last child*/
 																															<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																																<span>Name: {{$data[31]["name"]}}</span><br>
 																																<span>ID: {{$data[31]["id"]}}</span><br>
-																																<?php if($data[31]==Auth::user()->id){
+																																<?php if($data[31]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -815,7 +815,7 @@ right connector from last child*/
 																															<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																																<span>Name: {{$data[32]["name"]}}</span><br>
 																																<span>ID: {{$data[32]["id"]}}</span><br>
-																																<?php if($data[32]==Auth::user()->id){
+																																<?php if($data[32]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -833,7 +833,7 @@ right connector from last child*/
 																															<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																																<span>Name: {{$data[33]["name"]}}</span><br>
 																																<span>ID: {{$data[33]["id"]}}</span><br>
-																																<?php if($data[33]==Auth::user()->id){
+																																<?php if($data[33]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -852,7 +852,7 @@ right connector from last child*/
 																														<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																															<span>Name: {{$data[11]["name"]}}</span><br>
 																															<span>ID: {{$data[11]["id"]}}</span><br>
-																															<?php if($data[11]==Auth::user()->id){
+																															<?php if($data[11]["referral_id"]==Auth::user()->id){
 																																echo "<span>DR</span>";
 																															}else{
 
@@ -870,7 +870,7 @@ right connector from last child*/
 																															<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																																<span>Name: {{$data[34]["name"]}}</span><br>
 																																<span>ID: {{$data[34]["id"]}}</span><br>
-																																<?php if($data[34]==Auth::user()->id){
+																																<?php if($data[34]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -888,7 +888,7 @@ right connector from last child*/
 																															<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																																<span>Name: {{$data[35]["name"]}}</span><br>
 																																<span>ID: {{$data[35]["id"]}}</span><br>
-																																<?php if($data[35]==Auth::user()->id){
+																																<?php if($data[35]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -906,7 +906,7 @@ right connector from last child*/
 																															<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																																<span>Name: {{$data[36]["name"]}}</span><br>
 																																<span>ID: {{$data[36]["id"]}}</span><br>
-																																<?php if($data[36]==Auth::user()->id){
+																																<?php if($data[36]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -926,7 +926,7 @@ right connector from last child*/
 																													<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
 																														<span>Name: {{$data[12]["name"]}}</span><br>
 																														<span>ID: {{$data[12]["id"]}}</span><br>
-																														<?php if($data[12]==Auth::user()->id){
+																														<?php if($data[12]["referral_id"]==Auth::user()->id){
 																															echo "<span>DR</span>";
 																														}else{
 
@@ -945,7 +945,7 @@ right connector from last child*/
     																														<span>Name: {{$data[37]["name"]}}</span><br>
     																														<span>ID: {{$data[37]["id"]}}</span>
 																																<br>
-																																<?php if($data[37]==Auth::user()->id){
+																																<?php if($data[37]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -963,7 +963,7 @@ right connector from last child*/
     																													<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
     																														<span>Name: {{$data[38]["name"]}}</span><br>
     																														<span>ID: {{$data[38]["id"]}}</span><br>
-																																<?php if($data[38]==Auth::user()->id){
+																																<?php if($data[38]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
@@ -981,7 +981,7 @@ right connector from last child*/
     																													<a href="#"><img src="{{asset('storage/profile/')}}/{{$imgurl}}" width="50px" height="50px"/><br>
     																														<span>Name: {{$data[39]["name"]}}</span><br>
     																														<span>ID: {{$data[39]["id"]}}</span><br>
-																																<?php if($data[39]==Auth::user()->id){
+																																<?php if($data[39]["referral_id"]==Auth::user()->id){
 																																	echo "<span>DR</span>";
 																																}else{
 
