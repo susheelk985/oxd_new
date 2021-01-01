@@ -81,7 +81,7 @@
           @elseif(($pdu['crtat']==$pdu['updat']) && $days>29)
           <tr>
 
-              <td>{{$index+OXD1}}</td>
+              <td>{{$index+1}}</td>
               <td>OUI{{sprintf("%08d", $pdu['userID'])}}</td>
               <td>{{$pdu['name']}}</td>
               <td>{{$pdu['accno']}}</td>
@@ -102,7 +102,7 @@
               <td>{{$pdu['bname']}}</td>
               <td>{{$pdu['nbranch']}}</td>
               <td>{{$pdu['amount']}}</td>
-            
+
 
           </tr>
           @endif
