@@ -36,7 +36,7 @@ Route::get('/member_net_sale_view', [App\Http\Controllers\MemberController::clas
 Route::get('/member-net-sale-infinity', [App\Http\Controllers\MemberController::class, 'parent']);
 Route::get('/genealogy', [App\Http\Controllers\MemberController::class, 'genealogy_view']);
 Route::get('gen_invoice/down/{id}', [PDFController::class, 'gen_InvoicePDF']);
-Route::get('/e-wallet',[WalletController::class,'waPOSTllet']);
+Route::get('/e-wallet',[WalletController::class,'wallet']);
 Route::get('/e-pin',[EpinController::class,'epin']);
 Route::post('/e-pin/pin-request',array('uses'=>'EpinController@epin_request'));
 Route::get('/e-pin-requests',[AdminController::class,'e_pin_requests']);
