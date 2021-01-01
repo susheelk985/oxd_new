@@ -128,12 +128,11 @@ class DashboardController extends Controller
                       ->where('oxd_users.id','=',$id)
                       ->select('oxd_payments.amount')
                       ->get();
-    $recAmount=0;
+    $receivedAmount=0.0;
     foreach ($total_recAmount as $key => $recamount) {
-      $recAmount=$recAmount+$recamount->amount;
+      $receivedAmount=$receivedAmount+$recamount->amount;
     }
-
-    return view('dashboard/dashboard_customer_template')->with('data', $userDetails)->with('autopool', $membersData)->with('recamount', $recAmount);
+    return view('dashboard/dashboard_customer_template')->with('data', $userDetails)->with('autopool', $membersData)->with('recamount', $receivedAmount);
     //$this->parser->parse('dashboard/dashboard_customer_template',$data);
   }
 
