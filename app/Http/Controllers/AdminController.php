@@ -142,8 +142,7 @@ class AdminController extends Controller
                    ->join('oxd_orders','oxd_orders.member_id','=','oxd_users.id')
                    ->leftjoin('oxd_payments','oxd_payments.user_id','=','oxd_users.id')
                    ->where('oxd_orders.plan_id','=',888001)
-                   ->whereYear('oxd_orders.updated_at','<=',$year)
-                   ->whereMonth('oxd_orders.updated_at','<=',($month))
+                   ->whereBetween('oxd_orders.updated_at',['updated_at',$date])
                    ->select('oxd_users.id','oxd_orders.id as orderid','oxd_users.name','oxd_users.account_no','oxd_users.ifsc_code','oxd_users.bank_name','oxd_users.branch_name','oxd_orders.updated_at','oxd_orders.created_at','oxd_payments.amount')
                    ->get();
   $arr=[];
@@ -164,7 +163,7 @@ class AdminController extends Controller
               ];
 
     }
-
+    //echo json_encode($arr);
     return view('admin/payment_update')->with('paymentUsers', $arr);
   }
 
