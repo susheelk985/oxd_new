@@ -944,7 +944,7 @@ button.btn-link {
                                                     <div class=" col-9">
                                                         <h6 class="m-0 text-light f14" align="center"><b>RECEIVED AMOUNT</b></h6>
                                                         <p class="f14 mb-0">
-                                                            <h5 style="font-weight: bold; padding-left: 150px;"><i class="fa fa-rupee "></i>0.00</h5>
+                                                            <h5 style="font-weight: bold; padding-left: 150px;"><i class="fa fa-rupee "></i>{{$recamount}}</h5>
                                                         </p>
                                                     </div>
                                                 </div>
