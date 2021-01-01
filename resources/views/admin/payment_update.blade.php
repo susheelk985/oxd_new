@@ -863,10 +863,10 @@ tr{
           <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
           <input type="hidden" name="data_userID" id="data_userID">
           <input type="hidden" name="data_orderID" id="data_orderID">
-
+          <?php $da=date_create($date); ?>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Payment Date</label>
-            <input type="date" name="payment_date" class="form-control" value="{{$date}}">
+            <input type="date" name="payment_date" class="form-control" value="<?php echo date_format($da,"Y-m-d") ?>">
             <label for="message-text" class="col-form-label">Amount</label>
             <input type="text" name="payment_amount" id="payment_amount" class="form-control" value="">
           </div>
