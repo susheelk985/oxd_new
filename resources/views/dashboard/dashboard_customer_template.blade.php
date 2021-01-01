@@ -473,7 +473,43 @@ position: relative;
 
 .panel-title .select2-selection .select2-selection__arrow {
 	float: left;
-	display: block;
+	display: block;public function Children($id){
+
+  		$getChildMember=DB::table('oxd_member_log')->where('referral_id',$id)->get();
+
+ 		$arr=[];
+
+		foreach($getChildMember as $row){///level 2
+						$NetSaleVolume3=DB::table('oxd_orders')->where('member_id',$id)->select('product_cost')->pluck('product_cost')->first();
+					$arr[] = [
+
+						 'ibo' => $row->name.' ['.$row->id.']',
+						 'imgUrl' =>$this->MemberPictureUrl($id),
+ 						'bv' => $NetSaleVolume3,
+ 						'children' => $this->Children($row->id),
+ 					 ];
+		}
+ 		return $arr;
+ 	}
+
+  public function memberName($id){
+    return $users_name=DB::table('oxd_users')->where('id',$id)->select('name')->pluck('name')->first();
+  }
+
+  public function memberID($id){
+    return $users_name=DB::table('oxd_users')->where('id',$id)->select('id')->pluck('id')->first();
+  }
+
+
+public function MemberPictureUrl($id){
+    $users_Data=DB::table('oxd_users')->where('id',$id)->select('photo')->pluck('photo')->first();
+    if(!empty($MemberPictureUrl)){
+      return $MemberPictureUrl= asset('storage/profile/'.$MemberPictureUrl);
+         }else{
+        return $MemberPictureUrl= asset('storage/profile/profile-icon.png');
+     }
+  }
+
 	position: relative;
 	top: auto;
 	right: auto;
@@ -818,7 +854,7 @@ button.btn-link {
                               @foreach ($autopool as $Amountdata)
 
                               <?php
-                              if(($Amountdata->referral_id==Auth::user()->id)&&$count<=9){
+                              if(($Amountdata["referral_id"]==Auth::user()->id)&&$count<=9){
                                 $count++;
                               }
                                 ?>
