@@ -714,7 +714,7 @@ td{
                 @foreach ($wdata as $wallet_Data)
 
                 <?php
-                if(($wallet_Data->referral_id==Auth::user()->id)&&$count<=9){
+                if(($wallet_Data["referral_id"]==Auth::user()->id)&&$count<=9){
                   $count++;
                 }
                   ?>
@@ -842,12 +842,12 @@ td{
     @foreach ($wdata as $wallet_Data)
 
     <?php
-    if(($wallet_Data->referral_id==Auth::user()->id)&&$count<=9){
+    if(($wallet_Data["referral_id"]==Auth::user()->id)&&$count<=9){
       $count++;
       ?>
     <tr align="left" style="color:#262626;background-color:White;font-size:13px;">
       <td>{{$count}}</td>
-      <td>OXD{{sprintf("%08d",$wallet_Data->id)}}</td>
+      <td>OXD{{sprintf("%08d",$wallet_Data["id"])}}</td>
       <td>1000.00</td>
       <td>Direct Referral</td>
       <td>In Wallet</td>
