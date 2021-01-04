@@ -121,7 +121,7 @@ class CustomerRegistrationController extends Controller
                 $mem->name = $request->input('cname');
                 $mem->referral_id =$request->input('reference_member_id');
                 $mem->save();
-                return redirect('/')->with('success', 'Successfully Registered.  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
+                return redirect('/')->with('success', 'Successfully Registered.<br /> User ID :'.$member_id.'<br /> Password :'.$request->input('mobile').' <br />  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
               }else{
                 $user_details = DB::table('oxd_users')->join('oxd_orders','oxd_orders.member_id', '=','oxd_users.id')->where('oxd_users.id',$request->input('member_ID'))->where('oxd_orders.plan_id', $request->input('plan'))->get();
                 if($user_details->isEmpty()){
@@ -154,7 +154,7 @@ class CustomerRegistrationController extends Controller
                   $mem->name = $request->input('Cus_Name');
                   $mem->referral_id =$request->input('member_ID');
                   $mem->save();
-                  return redirect('/')->with('success', 'Successfully Registered.  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
+                  return redirect('/')->with('success', 'Successfully Registered. <br /> User ID :'.$member_id.' <br /> Password :'.$request->input('mobile').'<br /> Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
                 }else{
                   return redirect('/customer_registration')->with('error', 'You are already a member in this plan!');
                 }
