@@ -10,6 +10,8 @@ use  App\Models\oxd_member_log;
 use  App\Models\oxd_products;
 use  App\Models\oxd_product_category;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Gmail;
 use DB;
 use Storage;
 class CustomerRegistrationController extends Controller
@@ -121,7 +123,16 @@ class CustomerRegistrationController extends Controller
                 $mem->name = $request->input('cname');
                 $mem->referral_id =$request->input('reference_member_id');
                 $mem->save();
-                return redirect('/')->with('success', 'Successfully Registered.<br /> User ID :'.$member_id.'<br /> Password :'.$request->input('mobile').' <br />  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
+                $email  = $request->input('email');
+                $details = [
+                    'title' => 'Thank you for registering.',
+                    'body'  =>  'You have Successfully registerd.',
+                    'mobile'  =>  $request->input('mobile'),
+                    'user_id'  =>  $member_id,
+                    'password'  =>  $request->input('mobile'),
+                ];
+                Mail::to($email)->send(new Gmail($details));
+                return redirect('/')->with('success', 'Successfully Registered.<br /> Login Details are sended to your mail. <br />  Download your invoice now, <a href="'.  url('gen_invoice/down/'.$member_id). '"> click here  </a>');
               }else{
                 $user_details = DB::table('oxd_users')->join('oxd_orders','oxd_orders.member_id', '=','oxd_users.id')->where('oxd_users.id',$request->input('member_ID'))->where('oxd_orders.plan_id', $request->input('plan'))->get();
                 if($user_details->isEmpty()){
